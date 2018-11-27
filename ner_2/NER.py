@@ -40,8 +40,8 @@ args = parser.parse_args()
 # print( "input {} output {}".format(args.input_file,args.output_file))
 
 input_file = open(args.input_file)
-input_text = input_file.readline()
-dict_file_nel = open('../../Downloads/NER-LIST-UTF/NEL.txt.utf')
+input_text = input_file.read()
+dict_file_nel = open('../../../Downloads/NER-LIST-UTF/NEL.txt.utf')
 tk_ner = Tokenizer(lang='hin')
 tagger = Tagger(lang='hin')
 
