@@ -28,7 +28,6 @@ import argparse
 # tree = parser.parse(text3)
 # print('\n'.join(['\t'.join(node) for node in tree]))
 # #--------------------------------------------------------------
-
 #--------------------------------------------------------------
 parser = argparse.ArgumentParser()
 
