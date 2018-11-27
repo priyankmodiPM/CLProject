@@ -11,13 +11,13 @@ parser.add_argument("-out", "--output_file", help="Output File")
 
 args = parser.parse_args()
 
-input_file = open(args.input_file)
-input_text = input_file.readline()
+# input_file = open(args.input_file)
+# input_text = input_file.readline()
 # dict_file_nel = open('../../Downloads/NER-LIST-UTF/NEL.txt.utf')
 tk_ner = Tokenizer(lang='hin')
 tagger = Tagger(lang='hin')
 
-seq = tk_ner.tokenize(input_text)
+seq = tk_ner.tokenize("छह")
 list_tagged = tagger.tag(seq)
 
 for word in list_tagged:
