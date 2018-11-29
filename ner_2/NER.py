@@ -62,6 +62,9 @@ seq_dict_nem =  tk_ner.tokenize(text)
 dict_nem1 = open('./NER-LIST-UTF/test.txt.utf')
 text1 = dict_nem1.read()
 seq_dict_nem1 = tk_ner.tokenize(text1)
+dict_neo = open('./NER-LIST-UTF/NEO.txt.utf')
+text_neo = dict_neo.read()
+seq_dict_neo = tk_ner.tokenize(text_neo)
 for word in seq:
     count+=1 
     flag=0
@@ -156,6 +159,25 @@ for word in seq:
                 tag_dict[count+1]='I-NETI'
                 tag_dict[count+2]='I-NETI'
                 tag_dict[count+3]='I-NETI'
+
+    #B-NEO-------------------------------------------------------------------
+    elif word in seq_dict_neo:
+        index = seq_dict_neo.index(word)
+        first = index
+        if seq_dict_neo[index-1]=='':
+            while True:
+                evaluate = seq[count]==seq_dict_neo[index]
+                if evaluate and seq_dict_neo[index+1]=="":
+                    break
+                count+=1
+                index+=1
+                tag_dict[count]='I-NEO'
+            tag_dict[first]='B-NEO'
+
+            # tag_dict[count]='B-NEO'
+            # if seq[count+1] == seq_dict_neo[index+1]:
+            #     tag_dict[count]='B-NEO'
+            #     tag_dict[count+1]='I-NEO'
 
     else:
         if not count in tag_dict:
